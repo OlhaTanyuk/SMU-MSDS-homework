@@ -1,0 +1,69 @@
+---
+title: "Live session Unit 04 assignment"
+author: "Olga Tanyuk"
+date: "February 3, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+### FiveThirtyEight Data
+
+a. Install the fivethirtyeight package using function install.packages("fivethirtyeight")
+
+b. In the listing of Data sets in package ‘fivethirtyeight,’ assign the eighteenth data set to an object ‘df.’
+```{r}
+library(fivethirtyeight)
+data(package = "fivethirtyeight")
+df <- college_recent_grads
+```
+c. Use a more detailed list of the data sets to write out the URL in a comment to the related news story.
+```{r}
+vignette("fivethirtyeight", package = "fivethirtyeight")
+```
+And here is the url related to the story "The Economic Guide To Picking A College Major" http://fivethirtyeight.com/features/the-economic-guide-to-picking-a-college-major/
+
+d. Using R command(s), give the dimensions and column names of this data frame.
+```{r}
+# dimensions
+dim(df)
+# column names
+colnames(df)
+```
+or we can use function str that will provide both answers
+```{r}
+str(df)
+```
+
+### Data Summary
+
+a. Write an R command that gives you the column names of the data frame.  Right after that, write one that counts the number of columns but not rows.  Hint: The number should match one of your numbers in Question 1d for dimensions.
+```{r}
+colnames(df)
+ncol(df)
+```
+
+b. Generate a count of each unique major_category in the data frame.  I recommend using libraries to help.  I have demonstrated one briefly in live-session.  To be clear, this should look like a matrix or data frame containing the major_category and the frequency it occurs in the dataset.  Assign it to major_count.
+```{r}
+library(plyr)
+major_count <- count(df, 'major_category')
+major_count
+```
+c. To make things easier to read, put par(las=2) before your plot to make the text perpendicular to the axis.  Make a barplot of major_count.  Make sure to label the title with something informative (check the vignette if you need), label the x and y axis, and make it any color other than grey.  Assign the major_category labels to their respective bar.  Flip the barplot horizontally so that bars extend to the right, not upward.  All of these options can be done in a single pass of barplot(). Note: It’s okay if it’s wider than the preview pane.
+
+```{r}
+par(las=2)
+major_category <- count(df, 'major_category')
+barplot(major_category$freq, names = major_category$major_category, ylab = "Frequency", main = "Popularity of college majors", col="red")
+```
+
+d. Write the fivethirtyeight data to a csv file.  Make sure that it does not have row labels.
+```{r}
+write.csv(college_recent_grads, file = "college_recent_grads.csv", row.names=FALSE)
+```
+
+## Codebook
+Please visit my GitHub repository SMU MSDS homework: https://github.com/OlhaTanyuk/SMU-MSDS-homework
