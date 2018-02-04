@@ -1,0 +1,83 @@
+---
+title: "Live session Unit 02 assignment"
+author: "Olga Tanyuk"
+date: "January 18, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# I.
+
+### 1. What is a basic workflow for reproducible research?
+
+The basic reproducible research workflow can be divided into three main stages:
+* data gathering
+* data analysis
+* data presentation
+
+### 2. What are five practical tips for making research reproducible?
+* Document everything
+* Everything is a (text) file
+* All files should be clear and readable
+* Explicitly tie your files together
+* Have a plan to organize, store, and make your files available
+
+### 3. Give an example of how you might implement each tip.
+
+1. Document everything
++ Document my R session info
++ Document how I gathered data
++ Document how I analyzed it
++ Document how I presented the results
+
+2. Everything is a (text) file
++ I need to save all my documentation as a (text) file, since it is a simplest file format possible to store big data.
+
+3. All files should be clear and readable
++ I need to treat my research files as if someone else, who has not worked on the project, will try to repeat and understand it.
++ Use comments in the code.
++ Display code in presentation text.
+
+4. Explicitly tie your files together
++ It is important to make the links between files explicit. Tie commands are the most dynamic way yo link files together.
+
+5. Have a plan to organize, store, and make your files available
++ Organize files so other researchers will understand how they fit togather.
++ Limit the amount of content any one file has
++ Make files accessible through the cloud computing services as Dropbox and GitHub.
+
+[Christopher Gandrud "Reproducible Research with R and RStudio 2nd edition" was used to answer Questions 1-3 ]
+
+### 4. Which one of these do you think will be the most difficult?
+ As for me, the most difficult would be to make all files clear and readable. You need to repeat all steps ones againe to make sure that all files and codes are understandable. It is the most boring but important part of the study.
+ 
+# II.
+
+### Download and complete “air_hist.R” code from the Files Tab on 2DS.  You will build scatterplots using the plot function.
+
+
+```{r}
+str(airquality)
+plot(x=airquality$Month, y=airquality$Temp, xlab="Month", ylab="Temperature", main = "Temperature by Month", col="darkmagenta")
+plot(x=airquality$Temp, y=airquality$Ozone, xlab="Temperature", ylab="Ozone", main = "Temperature vs Ozone")
+```
+# III.
+
+### Download and complete “knit_cars.Rmd” in the Files tab on 2DS.
+
+```{r}
+summary(pressure)
+plot(pressure, main = "Temperature vs Pressure")
+x <- pressure$temperature
+y <- pressure$pressure
+plot(y,x, xlab = "Pressure", ylab = "Temperature", main = "Pressure vs Temperature")
+```
+
+
+
+
+
+
